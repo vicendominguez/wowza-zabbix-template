@@ -20,19 +20,20 @@ You should look for the external scripts directory in your config server.
 In the CentOS 6.4 RPM installation is: 
 
 ``` 
- /usr/lib/zabbix/externalscripts
- 
+ /usr/lib/zabbix/externalscripts 
 ```
 
 Copy the python script there. A chmod/chown to get execution permission is necessary.
 
-In your Zabbix frontend: Configuration-Templates section, Import bottom in the right.
-Choose the xml file and import.
+Now, in your Zabbix frontend: Configuration-Templates section, Import bottom in the right.
+Choose the XML file and import.
 
 Apply this new template to your Wowza servers. 
+
 You don't need to modify the template if you are using the standard port to access to the Wowza URL (port 8086).
 
-To enable the user/pass you need to create two user macros wherever you prefer. I am using the Macro Tag in the Host config.
+To enable the user/pass you will need to create two user macros wherever you prefer. I am using the Macros tag in the host config screen.
+
 Two user macros must be created:
 
 * {$WOWUSER}
@@ -41,7 +42,7 @@ Two user macros must be created:
 Environment
 -----------
 
-I am using this script in my production enviroment:
+I am using this script in my production environment:
 
 * Wowza 3.x
 * Zabbix 2.2.x
@@ -49,5 +50,5 @@ I am using this script in my production enviroment:
 Notes
 -----
 
-I think Zabbix < 2.2.x cannot use user macro in external scripts. Sorry, buddy.
+I think Zabbix < 2.2.x cannot use user macros in external scripts. Sorry, buddy.
 
