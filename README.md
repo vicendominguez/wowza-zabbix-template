@@ -11,7 +11,7 @@ Two items, by now:
 * Global connections in the Wowza
 * Global Live streams number
 
-The template use Zabbix macros on Host to define the user/pass Wowza server url.
+The template uses Zabbix macros to define the user/pass Wowza server url.
 
 Install
 -------
