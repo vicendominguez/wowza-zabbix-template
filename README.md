@@ -1,18 +1,20 @@
 wowza-zabbix-template
 =====================
 
-** Description **
+Description
+-----------
 
 This is a minimal template to get info about your wowza rest url in your Zabbix Platform.
 
 Two items, by now:
 
-- Global connections in the Wowza
-- Global Live streams number
+* Global connections in the Wowza
+* Global Live streams number
 
 The template use Zabbix macros on Host to define the user/pass Wowza server url.
 
-** Install **
+Install
+-------
 
 You should look for the external scripts directory in your config server. 
 In the CentOS 6.4 RPM installation is: 
@@ -33,17 +35,19 @@ You don't need to modify the template if you are using the standard port to acce
 To enable the user/pass you need to create two user macros wherever you prefer. I am using the Macro Tag in the Host config.
 Two user macros must be created:
 
--{$WOWUSER}
--{$WOWPASS}
+*{$WOWUSER}
+*{$WOWPASS}
 
-** Environment **
+Environment
+-----------
 
 I am using this script in my production enviroment:
 
 -Wowza 3.x
 -Zabbix 2.2.x
 
-** Notes **
+Notes
+-----
 
 I think Zabbix < 2.2.x cannot use user macro in external scripts. Sorry, buddy.
 
