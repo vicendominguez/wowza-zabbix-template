@@ -35,16 +35,16 @@ You don't need to modify the template if you are using the standard port to acce
 To enable the user/pass you need to create two user macros wherever you prefer. I am using the Macro Tag in the Host config.
 Two user macros must be created:
 
-*{$WOWUSER}
-*{$WOWPASS}
+* {$WOWUSER}
+* {$WOWPASS}
 
 Environment
 -----------
 
 I am using this script in my production enviroment:
 
--Wowza 3.x
--Zabbix 2.2.x
+* Wowza 3.x
+* Zabbix 2.2.x
 
 Notes
 -----
