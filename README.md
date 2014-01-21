@@ -16,7 +16,7 @@ The template use Zabbix macros on Host to define the user/pass Wowza server url.
 Install
 -------
 
-You should look for the external scripts directory in your config server. 
+You should look for the external scripts directory in your Zabbix configuration file. 
 In the CentOS 6.4 RPM installation is: 
 
 ``` 
@@ -34,7 +34,7 @@ You don't need to modify the template if you are using the standard port to acce
 
 To enable the user/pass you will need to create two user macros wherever you prefer. I am using the Macros tag in the host config screen.
 
-Two user macros must be created:
+Two user macros should be created:
 
 * {$WOWUSER}
 * {$WOWPASS}
