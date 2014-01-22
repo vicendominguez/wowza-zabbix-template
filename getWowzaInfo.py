@@ -1,7 +1,7 @@
 #!/bin/env python
 # Vicente Dominguez
 # -a conn - Global connections
-# -a strnum - Global application(streaming) num
+# -a appnum - Global application(streaming) num
 
 import urllib2, base64, sys, getopt
 import xml.etree.ElementTree as ET
@@ -16,7 +16,7 @@ getInfo = "None"
 ##
 
 def Usage ():
-        print "Usage: getWowzaInfo.py -u user -p password -h 127.0.0.1 -P 8086 -a [conn|strnum]"
+        print "Usage: getWowzaInfo.py -u user -p password -h 127.0.0.1 -P 8086 -a [conn|appnum]"
         sys.exit(2)
 
 def getCurrentConnections():
@@ -32,42 +32,46 @@ def unknown():
 ##
 
 
+def main ():
+
+	global xmlroot    
+	argv = sys.argv[1:]	
+    
+	try :
+			opts, args = getopt.getopt(argv, "u:p:h:P:a:")
+
+			# Assign parameters as variables
+			for opt, arg in opts :
+					if opt == "-u" :
+							username = arg
+					if opt == "-p" :
+							password = arg
+					if opt == "-h" :
+							host = arg
+					if opt == "-P" :
+							port = arg
+					if opt == "-a" :
+							getInfo = arg
+	except :
+					usage()
+
+	url="http://" + host + ":" + port + "/connectioncounts/"
+	request = urllib2.Request(url)
+	base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
+	request.add_header("Authorization", "Basic %s" % base64string)   
+	result = urllib2.urlopen(request)
+	xmlroot = ET.fromstring(result.read())
+
+	if ( getInfo == "conn"):
+			getCurrentConnections()
+	elif ( getInfo == "appnum"):
+			getCurrentStreams()
+	else:
+			unknown()
+			sys.exit(1)
 
 
-argv = sys.argv[1:]
 
-try :
-        opts, args = getopt.getopt(argv, "u:p:h:P:a:")
+if __name__ == "__main__":
 
-        # Assign parameters as variables
-        for opt, arg in opts :
-                if opt == "-u" :
-                        username = arg
-                if opt == "-p" :
-                        password = arg
-                if opt == "-h" :
-                        host = arg
-                if opt == "-P" :
-                        port = arg
-                if opt == "-a" :
-                        getInfo = arg
-except :
-                usage()
-
-url="http://" + host + ":" + port + "/connectioncounts/"
-request = urllib2.Request(url)
-base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
-request.add_header("Authorization", "Basic %s" % base64string)   
-result = urllib2.urlopen(request)
-xmlroot = ET.fromstring(result.read())
-
-
-if ( getInfo == "conn"):
-        getCurrentConnections()
-elif ( getInfo == "appnum"):
-        getCurrentStreams()
-else:
-        unknown()
-        sys.exit(1)
-
-
+    main()
