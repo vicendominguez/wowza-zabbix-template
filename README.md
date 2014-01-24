@@ -54,4 +54,4 @@ I think Zabbix < 2.2.x cannot use user macros in external scripts. Sorry, buddy.
 
 Screenshots
 -----------
-![Screenshot](github.com/vicendominguez/wowza-zabbix-template/master/img/zabbix-wowza-graph.png)
+![Screenshot](vicendominguez/wowza-zabbix-template/master/img/zabbix-wowza-graph.png)
