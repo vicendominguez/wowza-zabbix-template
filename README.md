@@ -13,6 +13,10 @@ Two items, by now:
 
 The template uses Zabbix macros to define the user/pass Wowza server url.
 
+It permits a fast configuration because of you can apply the same template to all your Wowza servers without modification/installation in the agents.
+
+Of course, it can be to work in the agent/client side too.
+
 Install
 -------
 
