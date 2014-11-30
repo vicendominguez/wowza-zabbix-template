@@ -32,10 +32,13 @@ def unknown():
 ##
 
 
-def main ():
+def main (username,password,host,port,getInfo):
 
 	global xmlroot    
 	argv = sys.argv[1:]	
+    
+	if (len(argv) < 1):
+		Usage()   
     
 	try :
 			opts, args = getopt.getopt(argv, "u:p:h:P:a:")
@@ -53,7 +56,7 @@ def main ():
 					if opt == "-a" :
 							getInfo = arg
 	except :
-					usage()
+					Usage()
 
 	url="http://" + host + ":" + port + "/connectioncounts/"
 	request = urllib2.Request(url)
@@ -74,4 +77,4 @@ def main ():
 
 if __name__ == "__main__":
 
-    main()
+    main(username,password,host,port,getInfo)
