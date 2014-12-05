@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2014-01-21T13:07:38Z</date>
+    <date>2014-12-05T13:36:00Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -28,7 +28,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>getWowzaInfo.py[&quot;-u&quot;,&quot;{$WOWUSER}&quot;,&quot;-p&quot;,&quot;{$WOWPASS}&quot;,&quot;-h&quot;,&quot;{HOST.HOST}&quot;,&quot;-P&quot;,&quot;8086&quot;,&quot;-a&quot;,&quot;conn&quot;]</key>
+                    <key>getWowzaInfo.py[&quot;-u&quot;,&quot;{$WOWUSER}&quot;,&quot;-p&quot;,&quot;{$WOWPASS}&quot;,&quot;-h&quot;,&quot;{HOST.CONN}&quot;,&quot;-P&quot;,&quot;8086&quot;,&quot;-a&quot;,&quot;conn&quot;]</key>
                     <delay>30</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -68,6 +68,7 @@ for authentication.</description>
                         </application>
                     </applications>
                     <valuemap/>
+                    <logtimefmt/>
                 </item>
                 <item>
                     <name>Wowza Global Streams</name>
@@ -75,7 +76,7 @@ for authentication.</description>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>getWowzaInfo.py[&quot;-u&quot;,&quot;{$WOWUSER}&quot;,&quot;-p&quot;,&quot;{$WOWPASS}&quot;,&quot;-h&quot;,&quot;{HOST.HOST}&quot;,&quot;-P&quot;,&quot;8086&quot;,&quot;-a&quot;,&quot;appnum&quot;]</key>
+                    <key>getWowzaInfo.py[&quot;-u&quot;,&quot;{$WOWUSER}&quot;,&quot;-p&quot;,&quot;{$WOWPASS}&quot;,&quot;-h&quot;,&quot;{HOST.CONN}&quot;,&quot;-P&quot;,&quot;8086&quot;,&quot;-a&quot;,&quot;appnum&quot;]</key>
                     <delay>30</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -115,6 +116,7 @@ for authentication.</description>
                         </application>
                     </applications>
                     <valuemap/>
+                    <logtimefmt/>
                 </item>
             </items>
             <discovery_rules/>
@@ -124,4 +126,3 @@ for authentication.</description>
         </template>
     </templates>
 </zabbix_export>
-
