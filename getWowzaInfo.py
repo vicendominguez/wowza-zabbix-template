@@ -11,6 +11,7 @@ username = "admin"
 password = "admin"
 host = "localhost"
 port = "8086"
+realm = "Wowza Media Systems"
 getInfo = "None"
 
 ##
@@ -58,12 +59,16 @@ def main (username,password,host,port,getInfo):
 	except :
 					Usage()
 
+
 	url="http://" + host + ":" + port + "/connectioncounts/"
-	request = urllib2.Request(url)
-	base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
-	request.add_header("Authorization", "Basic %s" % base64string)   
-	result = urllib2.urlopen(request)
-	xmlroot = ET.fromstring(result.read())
+	authhandler = urllib2.HTTPDigestAuthHandler()
+	authhandler.add_password(realm, url, username, password)
+	opener = urllib2.build_opener(authhandler)
+	urllib2.install_opener(opener)
+	page_content = urllib2.urlopen(url)
+	xmlroot = ET.fromstring(page_content.read())	
+
+
 
 	if ( getInfo == "conn"):
 			getCurrentConnections()
